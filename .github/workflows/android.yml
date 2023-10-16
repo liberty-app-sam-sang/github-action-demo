@@ -30,7 +30,7 @@ jobs:
         distribution: 'temurin'
         cache: gradle
     - name: echo envs
-      run: echo ${{ DEFAULT_ENVIRONMENT }}
+      run: echo ${{ env.DEFAULT_ENVIRONMENT }}
     - name: echo sys envs
       run: echo ${{ vars.DEFAULT_ENVIRONMENT }}
 
