@@ -11,31 +11,15 @@ on:
           options:
             - QA
             - PRODUCT
-
+            
 env:
   DEFAULT_ENVIRONMENT: ${{ vars.DEFAULT_ENVIRONMENT }}
+
 jobs:
-  build:
-    environment: 
-      name: ${{ inputs.deploy_env }}
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
-    - name: set up JDK 17
-      uses: actions/setup-java@v3
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-        cache: gradle
-    - name: echo envs
-      run: echo ${{ env.DEFAULT_ENVIRONMENT }}
-    - name: echo sys envs
-      run: echo ${{ vars.DEFAULT_ENVIRONMENT }}
-
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
-    - name: Build with Gradle
-      run: ./gradlew :app:assembleDebug
-      shell: bash
+  ci:
+    uses: liberty-app-sam-sang/my-actions/.github/workflows/blank.yml@main
+    secrets: inherit
+    with:
+      java-version: 17
+      deploy-env: ${{ inputs.deploy_env }}
+      target: ${{ inputs.target }}
