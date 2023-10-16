@@ -22,4 +22,3 @@ jobs:
     with:
       java-version: 17
       deploy-env: ${{ inputs.deploy_env }}
-      target: ${{ inputs.target }}
