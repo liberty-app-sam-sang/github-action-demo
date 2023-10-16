@@ -3,10 +3,6 @@ name: Android CI
 on:
   workflow_dispatch:
     inputs:
-        target:
-          description: 'target'
-          required: true
-          type: choice
         deploy_env:
           description: 'Deploy Env'
           required: true
