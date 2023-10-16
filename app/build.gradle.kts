@@ -4,6 +4,9 @@ plugins {
 //    id("com.google.gms.google-services")
 }
 
+val defaultEnv = System.getenv("DEFAULT_ENVIRONMENT")?: ""
+println("defaultEnv: $defaultEnv")
+
 android {
     namespace = "com.wello.app.android.dev"
     compileSdk = 33
@@ -16,6 +19,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "DEFAULT_ENV", "\"$defaultEnv\"")
     }
 
     buildTypes {
