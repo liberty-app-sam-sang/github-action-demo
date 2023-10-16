@@ -13,7 +13,7 @@ on:
             - PRODUCT
 
 env:
-  DEFAULT_ENVIRONMENT: ${{ inputs.deploy_env }}
+  DEFAULT_ENVIRONMENT: ${{ vars.DEFAULT_ENVIRONMENT }}
 jobs:
   build:
     environment: 
