@@ -14,7 +14,7 @@ on:
 jobs:
   build:
     environment: 
-      name: ${{deploy_env}}
+      name: ${{ inputs.deploy_env }}
 
     runs-on: ubuntu-latest
 
