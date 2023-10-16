@@ -17,6 +17,8 @@ on:
             - PRODUCT
 jobs:
   build:
+    environment: 
+      name: ${{deploy_env}}
 
     runs-on: ubuntu-latest
 
