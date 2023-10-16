@@ -11,6 +11,9 @@ on:
           options:
             - QA
             - PRODUCT
+
+env:
+  DEFAULT_ENVIRONMENT: ${{ inputs.deploy_env }}
 jobs:
   build:
     environment: 
@@ -27,6 +30,8 @@ jobs:
         distribution: 'temurin'
         cache: gradle
     - name: echo envs
+      run: echo ${{ DEFAULT_ENVIRONMENT }}
+    - name: echo sys envs
       run: echo ${{ vars.DEFAULT_ENVIRONMENT }}
 
     - name: Grant execute permission for gradlew
